@@ -5,8 +5,8 @@
 class TankTest: public ::testing::Test {
 protected:
     void SetUp() {
-        tank1 = new Tank(Point(0,0),nullptr,false);
-        tank2 = new Tank(Point(1,2),nullptr,false);
+        tank1 = new Tank(Point(0,0),nullptr,false,nullptr);
+        tank2 = new Tank(Point(1,2),nullptr,false,nullptr);
     }
     void TearDown() {
         delete tank1;
@@ -39,8 +39,8 @@ TEST_F(TankTest, InitialPosition){
 class CarTest: public ::testing::Test {
 protected:
     void SetUp() {
-        car1 = new Car(Point(0,0),nullptr);
-        car2 = new Car(Point(1,2),nullptr);
+        car1 = new Car(Point(0,0),nullptr,nullptr);
+        car2 = new Car(Point(1,2),nullptr,nullptr);
     }
     void TearDown() {
         delete car1;

@@ -14,10 +14,16 @@ public:
 class TankFactory : public TechniqueFactory {
 public:
     Technique* createTechnique(const Point& initialPosition, sf::RenderWindow* mainWindow, bool isEnemy);
+private:
+    TankFlyWeight* tank0; // player
+    TankFlyWeight* tank1; // enemy
 };
 
 class CarFactory : public TechniqueFactory{
+public:
     Technique* createTechnique(const Point& initialPosition, sf::RenderWindow* mainWindow, bool isEnemy);
+private:
+    CarFlyWeight* car;
 };
 
 class SimpleTowerFactory : TowerFactory {

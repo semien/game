@@ -6,7 +6,6 @@
 class Tower{
 public:
     Tower(const Point& initialPos, sf::RenderWindow* mainWindow);
-    const sf::Sprite& getSprite() const;
     virtual void tryToStrike() = 0;
     //virtual ~Tower();
 protected:
