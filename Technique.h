@@ -1,26 +1,25 @@
 #pragma once
-#include<SFML/Audio.hpp>
-#include<SFML/Graphics.hpp>
-#include<set>
-#include"Towers.h"
-#include"Point.h"
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
+#include <set>
+#include "Towers.h"
+#include "Point.h"
 
 class Technique{
 public:
-    Technique(const Point& initialPos, sf::RenderWindow* mainWindow);
+    Technique(const Point& initialPos);
     void getDamage(int value);
     bool isDead() const;
     const Point& getPosition() const;
-    const Point& getCurrentVelocity() const;
+    double getShotDistance() const;
     virtual void updateAction() = 0;
     virtual void updateSprite() = 0;
     virtual void tryToShot() = 0;
 //    virtual ~Technique();
 protected:
-    sf::RenderWindow* window;
-    std::set<Technique*> *opponentTechnique;
-    std::set<Tower*> *opponentTowers;
+    Technique* target;
     int health;
+    double shotDistance;
     Point position;
     Point velocity;
     int speed;
@@ -37,7 +36,7 @@ private:
 
 class Tank : public Technique{
 public:
-    Tank(const Point& initialPos, sf::RenderWindow* mainWindow, bool isEnemy, TankFlyWeight* tank);
+    Tank(const Point& initialPos, bool isEnemy, TankFlyWeight* tank);
     void tryToShot();
     void updateAction();
     void updateSprite();
@@ -61,7 +60,7 @@ private:
 
 class Car : public Technique{
 public:
-    Car(const Point& initialPos, sf::RenderWindow* mainWindow, CarFlyWeight* car);
+    Car(const Point& initialPos, CarFlyWeight* car);
     void tryToShot();
     void updateSprite();
     void updateAction();

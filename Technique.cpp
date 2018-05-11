@@ -1,7 +1,7 @@
 #include "Technique.h"
 
 // add sets to constructor
-Technique::Technique(const Point& initialPos, sf::RenderWindow* mainWindow):position(initialPos), window(mainWindow){
+Technique::Technique(const Point& initialPos):position(initialPos){
     // there will be code here
 }
 
@@ -17,9 +17,12 @@ const Point& Technique::getPosition() const{
     return position;
 }
 
-const Point& Technique::getCurrentVelocity() const{
-    return velocity;
+double Technique::getShotDistance() const{
+    return shotDistance;
 }
+//const Point& Technique::getCurrentVelocity() const{
+//    return velocity;
+//}
 
 TankFlyWeight::TankFlyWeight(){}
 void TankFlyWeight::updateSprite(sf::Sprite &ground, sf::Sprite &up, const Point &position, const Point &velocity) {}
@@ -27,7 +30,7 @@ void TankFlyWeight::updateSprite(sf::Sprite &ground, sf::Sprite &up, const Point
 CarFlyWeight::CarFlyWeight() {}
 void CarFlyWeight::updateSprite(sf::Sprite &sprite, const Point &position, const Point &velocity) {}
 
-Tank::Tank(const Point& initialPos, sf::RenderWindow* mainWindow, bool isEnemy, TankFlyWeight* tank):Technique(initialPos, mainWindow),isEnemy(isEnemy), tank(tank){
+Tank::Tank(const Point& initialPos, bool isEnemy, TankFlyWeight* tank):Technique(initialPos),isEnemy(isEnemy), tank(tank){
     health = 10;
     damage = 1;
     speed = 10;
@@ -47,7 +50,7 @@ void Tank::updateAction(){
     
 }
 
-Car::Car(const Point& initialPos, sf::RenderWindow* mainWindow, CarFlyWeight* car):Technique(initialPos, mainWindow), car(car){
+Car::Car(const Point& initialPos, CarFlyWeight* car):Technique(initialPos), car(car){
     health = 3;
     speed = 30;
 }

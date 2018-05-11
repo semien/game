@@ -1,6 +1,6 @@
-#include<gtest/gtest.h>
-#include"Game.h"
-#include"Tests.h"
+#include <gtest/gtest.h>
+#include "Tests.h"
+#include "Application.h"
 
 
 
@@ -8,7 +8,8 @@
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-//    Game game(false);
-//    game.play();
+    if (RUN_ALL_TESTS()) return 1;
+    Application app(false);
+    app.run();
+    return 0;
 }

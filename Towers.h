@@ -1,15 +1,14 @@
 #pragma once
-#include<SFML/Audio.hpp>
-#include<SFML/Graphics.hpp>
-#include"Point.h"
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
+#include "Point.h"
 
 class Tower{
 public:
-    Tower(const Point& initialPos, sf::RenderWindow* mainWindow);
+    Tower(const Point& initialPos);
     virtual void tryToStrike() = 0;
     //virtual ~Tower();
 protected:
-    sf::RenderWindow* window;
     sf::Sprite sprite;
     sf::Texture texture;
     int damage;
@@ -20,14 +19,14 @@ protected:
 
 class SimpleTower : public Tower {
 public:
-    SimpleTower(const Point& initialPos, sf::RenderWindow* mainWindow);
+    SimpleTower(const Point& initialPos);
     void tryToStrike();
     ~SimpleTower();
 };
 
 class ElectricTower : public Tower {
 public:
-    ElectricTower(const Point& initialPos, sf::RenderWindow* mainWindow);
+    ElectricTower(const Point& initialPos);
     void tryToStrike();
     ~ElectricTower();
 };

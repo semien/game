@@ -1,8 +1,8 @@
 #include "Towers.h"
 
-Tower::Tower(const Point& initialPos, sf::RenderWindow* mainWindow):position(initialPos), window(mainWindow){}
+Tower::Tower(const Point& initialPos):position(initialPos){}
 
-SimpleTower::SimpleTower(const Point& initialPos, sf::RenderWindow* mainWindow):Tower(initialPos, mainWindow){
+SimpleTower::SimpleTower(const Point& initialPos):Tower(initialPos){
     // there will be code
 }
 
@@ -12,7 +12,7 @@ void SimpleTower::tryToStrike(){
     // there will be code
 }
 
-ElectricTower::ElectricTower(const Point& initialPos, sf::RenderWindow* mainWindow):Tower(initialPos, mainWindow){
+ElectricTower::ElectricTower(const Point& initialPos):Tower(initialPos){
     // there will be code
 }
 

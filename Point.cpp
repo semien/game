@@ -1,5 +1,5 @@
-#include<cmath>
-#include"Point.h"
+#include <cmath>
+#include "Point.h"
 
 Point::Point(double a, double b) : x(a), y(b) {}
 Point::Point() : x(0), y(0) {}
